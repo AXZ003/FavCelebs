@@ -10,18 +10,25 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
-    <div id="celeb-message"><p class="message">Click on a GIF to watch and pause or add your favorite celeb to the lists</p></div>
+<body background="assets/images/hollywood1.jpg">
+  <div class="title">
+    <h1>All-Time Favorite Celebrities</h1>
+  </div>
+    <div id="celeb-message"><p class="message">Click on a GIF to watch or pause. <br> Add your favorite celeb below!</p></div>
+
+    <form id="artist-form">
+    
+        <label for="gif-input">Add your favorite celeb:</label>
+        <input type="text" id="gif-input">
+      
+      <input id="addGif" type="submit" value="Love Them!">
+    </form>
+    <br>
+    <br>
   <!-- Retrieved data will be dumped here -->
   <div id="celebrity-view"></div>
 
-  <form id="artist-form">
-    
-      <label for="gif-input">Add your favorite celeb:</label>
-      <input type="text" id="gif-input">
-    
-    <input id="addGif" type="submit" value="Submit!">
-  </form>
+
     
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script> 
 <script src="assets/javascript/app.js"></script>

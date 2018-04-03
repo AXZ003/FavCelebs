@@ -5,7 +5,8 @@ $(document).ready(function(){
     var topics = ["G-Eazy", "Post Malone","Jennifer Lawrence","Emma Stone","Lin-Manuel Miranda","Beyoncé","Benedict Cumberbatch","Eddie Redmayne", "Jimmy Fallon","James Corden","Harry Styles","Chadwick Boseman"]
 
 
-      
+
+      renderButtons ();
 
 
         function renderButtons() {
@@ -17,7 +18,8 @@ $(document).ready(function(){
                
                 var gifButtons = $('<button>').text(topics[i]);
                     
-        
+              gifButtons.addClass("gif-btn");
+              
                 var makeString = JSON.stringify(topics[i]);
                 var replacement = makeString.replace(/\"/g, "");
 
@@ -30,24 +32,8 @@ $(document).ready(function(){
 
             }
 
-            $("#addGif").on("click", function(event) {
-               
-                // Preventing the buttons default behavior when clicked (which is submitting a form)
-               event.preventDefault();
-               // This line grabs the input from the textbox
-               var celebName = $("#gif-input").val().trim();
-    
-               topics.push(celebName);
-               gifButtons = $("<button>").text(celebName);
-               var makeString= JSON.stringify(celebName);
-               gifButtons.attr("celeb-data", makeString);
-               $("#celebrity-view").append(gifButtons);
-               renderButtons();
-            })
-
         }
   
-        renderButtons ();
 
     
         $("#addGif").on("click", function(event) {
@@ -60,20 +46,25 @@ $(document).ready(function(){
            topics.push(celebName);
 
            gifButtons = $("<button>").text(celebName);
+
            var makeString= JSON.stringify(celebName);
            gifButtons.attr("celeb-data", makeString);
+
            $("#celebrity-view").append(gifButtons);
+
            renderButtons(celebName);
 
         })
-   
 
-    $("button").on("click", function() { 
+      
+
+    $("button").on("click", function(gifDisplay) { 
         clear();
 
         var celeb = $(this).attr("celeb-data"); // need to create an attribute for the button. 
         
-        
+       
+
         var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + celeb + "&api_key=FCMyJzE9U2uIWIPLmspHmczH9llNPbCl&limit=10";
         
         
@@ -82,7 +73,7 @@ $(document).ready(function(){
           method: "GET"
 
         }).then(function(response) { // runs this callback when response is complete with response payload
-
+          renderButtons();
                 var results = response.data;
       
                 for (var i = 0; i < results.length; i++) { // iterates over results 
@@ -90,28 +81,33 @@ $(document).ready(function(){
                     // Creating and storing a div tag
                   var gifDiv = $("<div class='chosenGif'>");
 
+                  var rating = results[i].rating;
+                  
                   // Creating a paragraph tag with the result item's rating
                   var p = $("<p>").text("Rating: " + results[i].rating);
 
-                  // Creating and storing an image tag
-                  var gifs = $("<img>").attr("src", results[i].images.fixed_height.url);
+                  // Creating and storing an image tag 
+                  var gifs = $("<img>");
+                  gifs.addClass('gif');
+                  // add the attributes from activity 14 aka data-still, data-state or pausing won't work!!
+
+                  gifs.attr({"src": results[i].images.fixed_height_still.url, "data-still": results[i].images.fixed_height_still.url, "data-animate": results[i].images.fixed_height.url,
+                  "data-state": "still"});
       
+
+
+                  // append so they appear. Not prepend because they're not supposed to go to the top. 
                   gifDiv.append(p);
                   gifDiv.append(gifs);
-                 
+
                   $("#celebrity-view").append(gifDiv);
                 }
-              })
 
-
-            function clear() {
-                $("#celebrity-view").empty();
-            }    
-              
+              })  
               
           })
 
-          $("#chosenGif").on('click',function() {
+          $(".gif").on('click', function() {
           
             // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
             var state = $(this).attr("data-state");
@@ -126,10 +122,13 @@ $(document).ready(function(){
               $(this).attr("src", $(this).attr("data-still"));
               $(this).attr("data-state", "still");
             }
+
           });
 
 
-
+          function clear() {
+            $("#celebrity-view").empty();
+          }
 
 
 

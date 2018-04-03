@@ -1,0 +1,113 @@
+@font-face {
+
+    font-family: "Park";
+    src: url("font/ParkLane.ttf");
+
+}
+
+@font-face {
+
+    font-family: "Hazel";
+    src: url("font/Hazel.ttf");
+
+
+
+}
+
+@font-face {
+
+    font-family: "Demonde";
+    src: url("font/Demonde.ttf");
+
+}
+
+@font-face {
+
+    font-family: "Riesling";
+    src: url("font/riesling.ttf");
+
+}
+
+body {
+
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+ 
+ }
+
+ /* @media (min-width: 1120px), (min-height: 630px) {
+    body { background-size: auto; }
+} */
+
+h1 {
+
+    font-family: "Park";
+    text-align: center;
+    font-size: 90px;
+}
+
+.title {
+    margin: 50px;
+}
+
+
+#celebrity-view {
+
+    text-align:center;
+
+
+}
+
+button {
+
+
+    background-color: #FFB6C1;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 10px;
+}
+
+.message {
+
+    font-family: "riesling";
+    font-size: 40px;
+    text-align: center;
+
+}
+
+#addGif {
+
+    background-color: #FFB6C1;
+    border: 2px solid white;
+    border-radius: 12px;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin: 10px;
+}
+
+label {
+    font-family: "Riesling";
+    font-size: 30px;
+
+
+
+}
+
+#artist-form {
+
+    margin-left: 35%;
+    margin-top: 20px;
+}
