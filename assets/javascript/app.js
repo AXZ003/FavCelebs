@@ -58,8 +58,8 @@ $(document).ready(function(){
 
       
 
-    $("button").on("click", function(gifDisplay) { 
-        clear();
+    $(document).on("click", '.gif-btn', function() { 
+        // clear();
 
         var celeb = $(this).attr("celeb-data"); // need to create an attribute for the button. 
         
@@ -107,7 +107,9 @@ $(document).ready(function(){
               
           })
 
-          $(".gif").on('click', function() {
+        
+
+          $(document).on('click','.gif', function() {
           
             // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
             var state = $(this).attr("data-state");
