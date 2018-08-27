@@ -1,5 +1,7 @@
 # Awesome Celebrity Gifs - FavCelebs
 
+[Live Link]()
+
 This site calls the GIPHY API and populates the page with your favorite celebrity gifs. Additionally, the user can use this site to search for their own celebrity gifs.
 
 Click on any of the pre-selected celebrities to view 10 gifs related to that celebrity from the GIPHY API. To animate each gif, just click the gif. Click the gif again to pause.
