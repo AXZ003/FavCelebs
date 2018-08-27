@@ -65,7 +65,7 @@ $(document).ready(function(){
         
        
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + celeb + "&api_key=FCMyJzE9U2uIWIPLmspHmczH9llNPbCl&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + celeb + "&api_key=FCMyJzE9U2uIWIPLmspHmczH9llNPbCl&limit=10";
         
         
         $.ajax({
