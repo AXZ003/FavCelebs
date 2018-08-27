@@ -1,1 +1,1 @@
-# FavCelebs
+# Awesome Celebrity Gifs - FavCelebs
