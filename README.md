@@ -1,6 +1,6 @@
 # Awesome Celebrity Gifs - FavCelebs
 
-[Live Link](https://axz003.github.io/FavCelebs/)
+DEPLOYED PROJECT LINK: [FavCelebs](https://axz003.github.io/FavCelebs/)
 
 This site calls the GIPHY API and populates the page with your favorite celebrity gifs. Additionally, the user can use this site to search for their own celebrity gifs.
 
